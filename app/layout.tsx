@@ -26,7 +26,7 @@ export default function RootLayout ({
             ))}
           </nav>
         </header>
-        <main className='min-h-[calc(100vh-56px)] p-4'>
+        <main className='min-h-[calc(100vh-56px)] p-4 flex items-center justify-center'>
           {children}
         </main>
       </body>
