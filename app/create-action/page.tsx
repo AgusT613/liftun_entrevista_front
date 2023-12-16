@@ -7,6 +7,9 @@ import ActionName from '@/components/ActionName'
 import ActionDate from '@/components/ActionDate'
 import ActionOptions from '@/components/ActionOptions'
 import FormContainer from '@/components/FormContainer'
+import createAction from '@/services/createAction'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export default function CreateAction () {
   const router = useRouter()
@@ -14,7 +17,36 @@ export default function CreateAction () {
   const handleSaveAction = (event: any) => {
     const formData: HTMLFormElement = event.target.form
     const data = Object.fromEntries(new FormData(formData))
-    console.log(data)
+
+    const body = {
+      name: data.actionName,
+      action_start: data.dateStart,
+      action_end: data.dateEnd,
+      has_person_in_charge: data.hasPersonInCharge === 'true',
+      has_goals: data.hasGoals === 'true',
+      needs_carbon_footprint_calculation: data.needsCarbonFootprint === 'true',
+      is_legal_duty: data.isLegalDuty === 'true',
+      action_type: data.actionType
+    }
+
+    createAction(body)
+      .then(response => {
+        console.log(response)
+        toast.success('The action was created succesfully!', {
+          position: 'top-right',
+          autoClose: 2500,
+          theme: 'dark'
+        })
+        router.refresh()
+      })
+      .catch(error => {
+        console.error(error)
+        toast.error('An error has ocurred', {
+          position: 'top-right',
+          autoClose: 2500,
+          theme: 'dark'
+        })
+      })
     formData.reset()
   }
 
@@ -33,6 +65,7 @@ export default function CreateAction () {
           <GiReturnArrow className="text-2xl" />
         </SubmitBtn>
       </div>
+      <ToastContainer />
     </FormContainer>
   )
 }

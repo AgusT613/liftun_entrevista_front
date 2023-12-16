@@ -38,10 +38,10 @@ export default function ActionOptions () {
             <TbSelector className="text-lg text-blue-400" />
             <label htmlFor="actionType" className='flex-1'>Type</label>
             <select name="actionType" defaultValue={'betterWorld'} className='bg-slate-200 text-black rounded w-40'>
-                <option value="betterWorld">Better World</option>
-                <option value="betterPlace">Better Place</option>
-                <option value="betterCompany">Better Company</option>
-                <option value="betterProfit">Better Profit</option>
+                <option value="Better World">Better World</option>
+                <option value="Better Place">Better Place</option>
+                <option value="Better Company">Better Company</option>
+                <option value="Better Profit">Better Profit</option>
             </select>
         </div>
     </Fieldset>
