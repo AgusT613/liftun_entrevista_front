@@ -1,29 +1,21 @@
 import Link from 'next/link'
 import { routes } from './routes'
 import { ENVIRONMENT_ACTION_API } from '@/services/urls'
-import { RiPlantFill } from 'react-icons/ri'
+// Components
 import Fieldset from '@/components/Fieldset'
+// React Icons
+import { RiPlantFill } from 'react-icons/ri'
 import { FaHourglassStart } from 'react-icons/fa'
 import { GiFinishLine, GiFootprint } from 'react-icons/gi'
 import { CiUser } from 'react-icons/ci'
 import { GoGoal } from 'react-icons/go'
 import { PiSealWarning } from 'react-icons/pi'
-
-interface ActionApiJsonResponse {
-  id: number
-  name: string
-  action_start: string
-  action_end: string
-  has_person_in_charge: boolean
-  has_goals: boolean
-  needs_carbon_footprint_calculation: boolean
-  is_legal_duty: boolean
-  action_type: string
-}
+// TS Types
+import type { IActionApiJsonResponse } from '@/types'
 
 export default async function Home () {
   const response = await fetch(ENVIRONMENT_ACTION_API, { next: { revalidate: 60 } })
-  const actionList: ActionApiJsonResponse[] = await response.json()
+  const actionList: IActionApiJsonResponse[] = await response.json()
 
   return (
     <>
