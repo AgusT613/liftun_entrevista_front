@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 body{
-  background: rgb(117,104,255);
-  background: linear-gradient(30deg, rgba(117,104,255,1) 0%, rgba(130,19,223,1) 0%, rgba(128,54,236,1) 10%, rgba(117,104,255,1) 28%, rgba(135,104,255,1) 49%, rgba(117,104,255,1) 71%, rgba(121,44,232,1) 90%, rgba(130,19,223,1) 100%);
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(0,152,155,1) 0.1%, rgba(0,94,120,1) 94.2% );
   color: #fff;
 }
 

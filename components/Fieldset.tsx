@@ -2,7 +2,7 @@ export default function Fieldset ({ children, legend, className, icon }: {
   children: React.ReactNode
   legend: string
   className?: string
-  icon: React.ReactElement
+  icon?: React.ReactElement
 }) {
   return (
     <fieldset className={` rounded-md px-6 py-2 grid bg-[rgba(0,0,0,.3)] ${className}`}>
