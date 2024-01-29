@@ -1,3 +1,5 @@
+import type { ReactNode } from 'react'
+
 export interface IActionApiJsonResponse {
   id: number
   name: string
@@ -14,4 +16,10 @@ export interface IRoutes {
   section: string
   url: string
   icon: React.ReactElement
+}
+
+// Components Types
+export interface IPageTitleSection {
+  children: string
+  icon: ReactNode
 }

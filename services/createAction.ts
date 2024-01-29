@@ -11,7 +11,7 @@ export interface ActionModel {
   action_type: string
 }
 
-export default async function createAction (body: any) {
+export async function createAction (body: any) {
   const options = {
     method: 'POST',
     body: JSON.stringify(body),
