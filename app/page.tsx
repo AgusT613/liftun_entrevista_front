@@ -14,7 +14,7 @@ import { routes } from './routes'
 import type { IActionApiJsonResponse } from '@/types'
 
 export default async function Home () {
-  const response = await fetch(ENVIRONMENT_ACTION_API, { next: { revalidate: 60 } })
+  const response = await fetch(ENVIRONMENT_ACTION_API, { next: { tags: ['environmentActions'] } })
   const actionList: IActionApiJsonResponse[] = await response.json()
 
   return (

@@ -1,5 +1,6 @@
 'use client'
 import { useRouter } from 'next/navigation'
+import revalidateCreateAction from '@/actions/revalidateCreateAction'
 // React Icons
 import { IoSaveOutline } from 'react-icons/io5'
 import { GiReturnArrow } from 'react-icons/gi'
@@ -34,7 +35,7 @@ export default function CreateAction () {
     }
 
     createAction(body)
-      .then(response => {
+      .then(async response => {
         console.log(response)
         toast.success('The action was created succesfully!', {
           position: 'top-right',
@@ -42,6 +43,7 @@ export default function CreateAction () {
           theme: 'dark'
         })
         router.refresh()
+        await revalidateCreateAction()
       })
       .catch(error => {
         console.error(error)
